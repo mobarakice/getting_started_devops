@@ -1,0 +1,10 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+/.env
+/.idea/aws.xml
+/.idea/getting_started_devops.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/inspectionProfiles/profiles_settings.xml
