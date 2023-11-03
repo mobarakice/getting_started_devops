@@ -1,19 +1,24 @@
 pipeline {
     agent any
 
-    stages {
-        stage('AWS CLI Command') {
-            steps {
-                script {
-                    sh 'aws s3 ls'  // Example AWS CLI command
-                }
-            }
-        }
+    environment {
+        BUCKET_NAMES = "['test-input-bucket', 'test-output-bucket']" // Add your bucket names to the list
+        AWS_REGION = 'eu-north-1'
+    }
 
-        stage('Docker CLI Command') {
+    stages {
+        stage('Check and Create S3 Buckets') {
             steps {
                 script {
-                    sh 'docker info'  // Example AWS CLI command
+                    for (bucketName in BUCKET_NAMES) {
+                        try {
+                            sh "aws s3api head-bucket --bucket $bucketName --region $AWS_REGION"
+                            echo "Bucket '$bucketName' exists."
+                        } catch (Exception e) {
+                            echo "Bucket '$bucketName' doesn't exist. Creating..."
+                            sh "aws s3api create-bucket --bucket $bucketName --region $AWS_REGION"
+                        }
+                    }
                 }
             }
         }
