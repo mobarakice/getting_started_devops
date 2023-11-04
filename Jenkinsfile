@@ -26,7 +26,7 @@ pipeline {
                             echo "Bucket '$bucketName' exists."
                         } catch (Exception e) {
                             echo "Bucket '$bucketName' doesn't exist. Creating..."
-                            sh "aws s3api create-bucket --bucket $bucketName --region $AWS_REGION"
+                            sh "aws s3api create-bucket --bucket $bucketName --region $AWS_REGION --create-bucket-configuration LocationConstraint=EU"
                         }
                     }
                 }
