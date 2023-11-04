@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        BUCKET_NAMES = "['test-input-bucket', 'test-output-bucket']" // Add your bucket names to the list
+        def BUCKET_NAMES = ['test-input-bucket', 'test-output-bucket'] // Add your bucket names to the list
         AWS_REGION = 'eu-north-1'
     }
 
