@@ -9,7 +9,7 @@ pipeline {
         stage('Set Global Bucket Names') {
             steps {
                 script {
-                    def BUCKET_NAMES = ['test-input-bucket', 'test-output-bucket']
+                    def BUCKET_NAMES = ['test-input-files', 'test-output-files']
                     env.BUCKET_NAMES = BUCKET_NAMES.join(',') // Convert the list to a comma-separated string
                 }
             }
