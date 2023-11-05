@@ -20,7 +20,7 @@ pipeline {
 
     environment {
         AWS_REGION = 'eu-north-1'
-        ECR_REPO_NAME = ""
+        ECR_REPO_NAME = "test-repo-y2023"
     }
 
     stages {
