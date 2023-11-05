@@ -1,3 +1,10 @@
+
+def FUNC_NAMES = [
+        'factory-lambda-test' : './apigateway_lambd_test',
+        's3-trigger-function' : './factory_lamba_test',
+        'apigateway-function' : './s3_bucket_trigger_test'
+]
+
 pipeline {
     agent any
 
@@ -10,11 +17,6 @@ pipeline {
     // Create/Update lambda function with ECR Image URI and add s3 trigger
     // Update policy
 
-    def FUNC_NAMES = [
-                    'factory-lambda-test' : './apigateway_lambd_test',
-                    's3-trigger-function' : './factory_lamba_test',
-                    'apigateway-function' : './s3_bucket_trigger_test'
-                    ]
 
     environment {
         AWS_REGION = 'eu-north-1'
