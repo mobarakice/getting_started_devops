@@ -12,7 +12,7 @@ pipeline {
 
     def FUNC_NAMES = [
                     'factory-lambda-test' : './apigateway_lambd_test',
-                    's3-trigger-function' : './factory_lamba_test'
+                    's3-trigger-function' : './factory_lamba_test',
                     'apigateway-function' : './s3_bucket_trigger_test'
                     ]
 
