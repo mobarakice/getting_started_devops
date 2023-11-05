@@ -83,7 +83,7 @@ pipeline {
                     // Access FUNC_NAMES as a global environment variable
                     FUNC_NAMES.each { key, val ->
                         if(key == 's3-trigger-function'){
-                            env.TRIGGER_FUN = funcName
+                            env.TRIGGER_FUN = $key
                         }
 
                         sh "docker build -t $key $val"
